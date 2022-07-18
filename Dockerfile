@@ -1,7 +1,7 @@
 FROM ubuntu:jammy-20220531
 RUN apt update \
     && apt upgrade -y \
-    && apt install -y opam vim
+    && apt install -y opam vim entr
 
 RUN opam init -a --disable-sandboxing
 RUN opam update
@@ -12,4 +12,4 @@ RUN eval $(opam env --switch=cs3110-2021fa) \
 RUN eval $(opam env --switch=default)
 
 ENTRYPOINT [ "opam", "exec", "--" ]
-CMD [ "utop" ]
+CMD [ "/usr/bin/bash" ]
