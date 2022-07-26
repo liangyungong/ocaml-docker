@@ -3,4 +3,4 @@ all: build up
 build:
 	docker build -t ubuntu-jammy-ocaml .
 up:
-	docker run --rm -ti ubuntu-jammy-ocaml
+	docker run -v ${EXERCISM_DIR}:/exercism --rm -ti ubuntu-jammy-ocaml
